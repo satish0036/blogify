@@ -7,12 +7,39 @@
     <!-- Bootstrap CSS -->
     <style>
         /* Custom styles */
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
         body {
             background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-bottom: none;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 0;
+        }
+        .btn-primary {
+            border-radius: 0;
+            background-color: #007bff;
+            border: none;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -20,25 +47,31 @@
 <body>
     <%- include("./partials/nav") %>
 
-    <form class="container card p-3 mt-4" method="post" action="/contact/addContact">
-        <h1 class="mb-4">Contact Form</h1>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input name="email" placeholder="blogify@gmail.com" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Contact Form
+            </div>
+            <div class="card-body">
+                <form method="post" action="/contact/addContact">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input name="email" placeholder="Enter your email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input name="name" placeholder="Enter your name" type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea name="message" placeholder="Enter your message" class="form-control" id="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="name" class="form-label">Enter Name </label>
-            <input name="name" placeholder="eg:- Satish Kumar" type="text" class="form-control" id="name"
-                aria-describedby="name" required>
-        </div>
-        <div class="mb-3">
-            <label for="message" class="form-label">Enter Message</label>
-            <textarea name="message" placeholder="Hey Its great project 👌" type="text" class="form-control" id="content" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
     <%- include("./partials/script") %>
 </body>
 

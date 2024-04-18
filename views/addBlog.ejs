@@ -3,28 +3,69 @@
 
 <head>
     <%- include("./partials/head") %>
-        <title>addBlog</title>
+    <title>Add Blog</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-bottom: none;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 0;
+        }
+        .btn-primary {
+            border-radius: 0;
+            background-color: #007bff;
+            border: none;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
     <%- include("./partials/nav") %>
 
-        <form class="container mt-4" method="post" action="/blog/addblog">
-            <h1>I am from add Blog</h1>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Enter Heading </label>
-                <input name="heading" placeholder="GUIDE TO COMPETITIVE PROGRAMMING" type="text" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Add Blog
             </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Enter Content</label>
-                <textarea name="content" placeholder="Write your content" type="text" class="form-control" id="content"></textarea>
+            <div class="card-body">
+                <form class="mt-4" method="post" action="/blog/addblog">
+                    <div class="mb-3">
+                        <label for="heading" class="form-label">Enter Heading</label>
+                        <input name="heading" placeholder="GUIDE TO COMPETITIVE PROGRAMMING" type="text" class="form-control" id="heading" aria-describedby="heading" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Enter Content</label>
+                        <textarea name="content" placeholder="Write your content" class="form-control" id="content" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Post</button>
+                </form>
             </div>
-
-            <button type="submit" class="btn btn-primary">Post</button>
-        </form>
-        <%- include("./partials/script") %>
-
+        </div>
+    </div>
+    <%- include("./partials/script") %>
 </body>
 
 </html>

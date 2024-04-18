@@ -3,17 +3,41 @@
 
 <head>
     <%- include("./partials/head") %>
-    <title>SignIn Page</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Sign In</title>
     <style>
-        /* Custom styles */
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
         body {
             background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-bottom: none;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 0;
+        }
+        .btn-primary {
+            border-radius: 0;
+            background-color: #007bff;
+            border: none;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -21,20 +45,27 @@
 <body>
     <%- include("./partials/nav") %>
 
-    <form class="container card p-3 mt-4" method="post" action="/auth/signin">
-        <h1 class="mb-4">Sign In</h1>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input name="email" placeholder="blogify@gmail.com" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Sign In
+            </div>
+            <div class="card-body">
+                <form method="post" action="/auth/signin">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input name="email" placeholder="Enter your email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input name="password" placeholder="Enter your password" type="password" class="form-control" id="exampleInputPassword1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input name="password" placeholder="X@a3I[jd3}oo9d]" type="password" class="form-control" id="exampleInputPassword1" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
     <%- include("./partials/script") %>
 </body>
 
