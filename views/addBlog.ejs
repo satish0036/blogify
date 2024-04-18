@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head") %>
+        <title>addBlog</title>
+</head>
+
+<body>
+    <%- include("./partials/nav") %>
+
+        <form class="container mt-4" method="post" action="/blog/addblog">
+            <h1>I am from add Blog</h1>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Enter Heading </label>
+                <input name="heading" placeholder="GUIDE TO COMPETITIVE PROGRAMMING" type="text" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Enter Content</label>
+                <textarea name="content" placeholder="Write your content" type="text" class="form-control" id="content"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Post</button>
+        </form>
+        <%- include("./partials/script") %>
+
+</body>
+
+</html>

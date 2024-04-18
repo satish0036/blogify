@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include("./partials/head") %>
+    <style>
+      /* Add your CSS styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+        line-height: 1.5;
+      }
+    </style>
+    <title>Home</title>
+</head>
+
+<body>
+  <%- include("./partials/nav") %>
+  
+
+          <div class="container">
+            <h1>Welcome to Blogify!</h1>
+            <p>This is the home page of Blogify, a platform for creating and sharing blogs. Whether you're an aspiring
+              writer, a seasoned blogger, or just someone with a story to tell, Blogify provides you with the tools you
+              need to share your thoughts and ideas with the world.</p>
+            <p>On this home page, you can find some information about Blogify and its features. You can also navigate to
+              other parts of the website using the navigation menu above.</p>
+            <p>Feel free to explore and discover what Blogify has to offer. And if you haven't already, don't forget to
+              sign up and start creating your own blogs today!</p>
+          </div>
+          <%- include("./partials/script") %>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head") %>
+
+        <style>
+            .container {
+                text-align: left;
+                margin-top: 100px;
+            }
+
+            .btn-like {
+                background-color: #28a745;
+                color: white;
+            }
+
+            .btn-dislike {
+                background-color: #dc3545;
+                color: white;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+            }
+
+            /* Style for user icon */
+            .user-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #ccc;
+                margin-right: 10px;
+            }
+
+            /* Style for comments */
+            .comment {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+                padding: 5px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+
+                width: 90%;
+                margin-left: 30px;
+            }
+
+            .comment .user-info {
+                display: flex;
+                align-items: center;
+                width: auto;
+            }
+
+            .comment .user-info .username {
+                font-weight: bold;
+                margin-right: 5px;
+            }
+
+            .comment .comment-text {
+
+                color: #333;
+                margin: 0;
+            }
+
+            .comment-text {
+                padding-left: 50px;
+                color: #333;
+                margin: 0;
+            }
+        </style>
+        <title>Single Blog</title>
+
+</head>
+
+<body>
+    <%- include("./partials/nav") %>
+
+
+        <% if (locals.singleBlog) { %>
+            <div class=" m-4 p-2 " style="width: 93%;">
+                <div class="card-body p-2">
+                    <h4 class="card-title">
+                        <%= singleBlog.heading %>
+                    </h4>
+
+                    <div style="white-space: pre-line;">
+                        <%= singleBlog.content %>
+                    </div>
+                </div>
+
+
+
+
+
+                <button id="likeCount" class="btn btn-like mt-4" onclick="handleLike('<%= singleBlog._id %>')">
+                    <%= singleBlog.like %> 👍
+                </button>
+                <button id="dislikeCount" class="btn btn-dislike mt-4" onclick="handleDislike('<%= singleBlog._id %>')">
+                    <%= singleBlog.disLike %> 👎
+                </button>
+
+            </div>
+            <% } %>
+                <% if (locals.commentOnBlog) { %>
+                    <div class="m-4 p-2 " style="width: 99%;">
+                        <h3>Comment (<%= commentOnBlog.length %>)</h3>
+                        <form method="post" action="/comment/addComment/<%= singleBlog._id %>">
+                            <div class="m-1 mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Enter Your Comment</label>
+                                <input name="comment" placeholder="Awesome Blog!😃" type="text" class="form-control"
+                                    id="comment" aria-describedby="emailHelp" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+
+                    </div>
+                    <% commentOnBlog.forEach(comments=> { %>
+                        <div class="comment" class="m-4 p-2 ">
+                            <div class="user-info">
+                                <img class="user-icon"
+                                    src="https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png"
+                                    alt="User Icon">
+                                <span class="username">
+                                    <%= comments.fullName %>
+                                </span>
+                            </div>
+                            <p class="comment-text">
+                                <%= comments.comment %>
+                            </p>
+                        </div>
+
+
+                        <% }) %>
+
+                            <% } %>
+
+                                <%- include("./partials/script") %>
+                                
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head") %>
+        <title>allblog</title>
+</head>
+
+<body>
+    <%- include("./partials/nav") %>
+
+        <div class=" mt-4 row row-cols-2 row-cols-lg-5 g-2 g-lg-3 d-flex justify-content-center ">
+
+            <% if (locals.allBlog) { %>
+                <% allBlog.forEach(blog=> { %>
+
+
+
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= blog.heading %>
+                            </h5>
+
+                            <p class="card-text">
+                                <%= blog.content.split(" ").slice(0, 15).join(' ') %></p>
+                        <a href=" /blog/singleBlog/<%=blog._id %>" class="btn btn-primary">read...</a>
+
+                        </div>
+                    </div>
+
+
+                    <% }) %>
+                        <% } %>
+
+
+
+
+
+
+        </div>
+
+
+
+
+        <%- include("./partials/script") %>
+
+</body>
+
+</html>
