@@ -20,7 +20,7 @@ Blogify is a server-side rendered full-stack web application designed to simplif
 
 To run Blogify locally, follow these steps:
 
-1. Clone this repository: `git clone https://github.com/yourusername/blogify.git`
+1. Clone this repository: `git clone https://github.com/satish0036/blogify.git`
 2. Navigate to the project directory: `cd blogify`
 3. Install dependencies: `npm install`
 4. Set up environment variables: Create a `.env` file in the root directory and add necessary environment variables (e.g., DB_DATABASE=MongoDB connection string, PORT=8000).
